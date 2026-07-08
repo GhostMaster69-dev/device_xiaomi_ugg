@@ -5,10 +5,10 @@
 //
 
 cc_library_static {
-    name: "init_xiaomi_mi8937",
-    srcs: ["init_xiaomi_mi8937.cpp"],
+    name: "init_xiaomi_ugg",
+    srcs: ["init_xiaomi_ugg.cpp"],
     shared_libs: ["libfs_mgr"],
-    whole_static_libs: ["//device/xiaomi/mithorium-common:libinit_xiaomi_mithorium"],
+    whole_static_libs: ["//device/xiaomi/msm8937-common:libinit_xiaomi_msm8937"],
     include_dirs: ["system/core/init"],
     recovery_available: true,
 }

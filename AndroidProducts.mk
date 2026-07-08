@@ -5,15 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_Mi8937.mk \
-    $(LOCAL_DIR)/lineage_Mi8937_4_19.mk \
-    $(LOCAL_DIR)/lineage_Mi8937_Ld.mk
+    $(LOCAL_DIR)/lineage_ugg.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_Mi8937-user \
-    lineage_Mi8937-userdebug \
-    lineage_Mi8937-eng \
-    lineage_Mi8937_4_19-user \
-    lineage_Mi8937_4_19-userdebug \
-    lineage_Mi8937_4_19-eng \
-    lineage_Mi8937_Ld-userdebug
+    lineage_ugg-user \
+    lineage_ugg-userdebug \
+    lineage_ugg-eng

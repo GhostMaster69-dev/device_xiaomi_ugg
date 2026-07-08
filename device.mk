@@ -4,9 +4,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from mithorium-common
-$(call inherit-product, device/xiaomi/mithorium-common/mithorium.mk)
+# Inherit from common
+$(call inherit-product, device/xiaomi/msm8937-common/common.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# Board
+BOARD_VENDOR=xiaomi
+TARGET_BOARD_PLATFORM := msm8937
+TARGET_BOARD_SUFFIX := _64
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
@@ -20,15 +25,7 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
 PRODUCT_PACKAGES += \
-    CustomROMsOverlay_Mi8937 \
-    xiaomi_prada_overlay \
-    xiaomi_prada_overlay_Settings \
-    xiaomi_rolex_overlay \
-    xiaomi_riva_overlay \
-    xiaomi_ugg_overlay \
-    xiaomi_ugglite_overlay \
-    xiaomi_wt8937_overlay \
-    xiaomi_wt8937_overlay_Settings
+    DeviceOverlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -45,10 +42,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/blankfile:$(TARGET_COPY_OUT_ODM)/etc/camera/.placeholder
 
 PRODUCT_PACKAGES += \
-    camera.land \
-    camera.prada \
-    camera.ulysse \
-    camera.wingtech
+    camera.ulysse
 
 # Dumpstate
 PRODUCT_PACKAGES += \
@@ -60,24 +54,19 @@ PRODUCT_PACKAGES += \
     tune2fs_ramdisk \
     resize2fs_ramdisk
 
-ifeq ($(TARGET_KERNEL_VERSION),4.19)
-ifneq ($(MITHORIUM_INTEGRATE_LINDROID),true)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Use FUSE passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
-endif
-endif
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/blankfile:$(TARGET_COPY_OUT_ODM)/bin/gx_fpd
 
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ulysse \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_wt8937
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_ugg
 
 PRODUCT_PACKAGES += \
     liblzma.vendor:64
@@ -106,7 +95,7 @@ $(call soong_config_set,qtipower,tap_to_wake_node,/proc/sys/dev/xiaomi_msm8937_t
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    vendor/xiaomi/Mi8937/proprietary/vendor/bin/hvdcp_opti:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/hvdcp_opti
+    vendor/xiaomi/ugg/proprietary/vendor/bin/hvdcp_opti:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/hvdcp_opti
 
 # Rootdir
 PRODUCT_PACKAGES += \
@@ -133,9 +122,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Wifi
-PRODUCT_PACKAGES += \
-    WifiOverlay_prada
-
 # Inherit from vendor blobs
-$(call inherit-product, vendor/xiaomi/Mi8937/Mi8937-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ugg/ugg-vendor.mk)

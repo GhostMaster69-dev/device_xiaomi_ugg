@@ -1,4 +1,4 @@
-# fastboot-info for Mi8937
+# fastboot-info
 version 1
 
 update-super

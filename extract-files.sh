@@ -91,8 +91,8 @@ fi
 
 set -e
 
-export DEVICE=Mi8937
-export DEVICE_COMMON=mithorium-common
+export DEVICE=ugg
+export DEVICE_COMMON=msm8937-common
 export VENDOR=xiaomi
 
 "./../../${VENDOR}/${DEVICE_COMMON}/extract-files.sh" "$@"
