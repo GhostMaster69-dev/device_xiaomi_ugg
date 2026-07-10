@@ -8,6 +8,9 @@
 $(call inherit-product, device/xiaomi/msm8937-common/common.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+# 64-bit support
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 # Board
 BOARD_VENDOR=xiaomi
 TARGET_BOARD_PLATFORM := msm8937
