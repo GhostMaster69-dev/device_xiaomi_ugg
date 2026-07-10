@@ -8,6 +8,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_ugg.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_ugg-user \
-    lineage_ugg-userdebug \
-    lineage_ugg-eng
+    lineage_ugg-bp4a-user \
+    lineage_ugg-bp4a-userdebug \
+    lineage_ugg-bp4a-eng
